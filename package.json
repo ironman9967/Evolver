@@ -2,7 +2,8 @@
 	"name": "Evolver",
 	"version": "0.0.1",
 	"dependencies": {
-		"nodeunit":"0.8.2",
-		"lodash":"2.3.0"
+		"wid":"~0.0.9",
+		"nodeunit":"~0.8.2",
+		"lodash":"~2.3.0"
 	}
 }
