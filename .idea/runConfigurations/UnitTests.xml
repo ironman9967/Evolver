@@ -7,6 +7,8 @@
     <setting name="workingDirectory" value="$PROJECT_DIR$" />
     <setting name="testType" value="DIRECTORY" />
     <setting name="directory" value="Tests" />
+    <RunnerSettings RunnerId="Nodeunit.run" />
+    <ConfigurationWrapper RunnerId="Nodeunit.run" />
     <method />
   </configuration>
 </component>
