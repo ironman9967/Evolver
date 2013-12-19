@@ -1,9 +1,23 @@
 {
-	"name": "Evolver",
-	"version": "0.0.1",
-	"dependencies": {
-		"wid":"~0.0.9",
-		"nodeunit":"~0.8.2",
-		"lodash":"~2.3.0"
-	}
+    "name": "Evolver",
+    "version": "0.0.1",
+    "dependencies": {
+        "wid": "~0.0.9",
+        "nodeunit": "~0.8.2",
+        "lodash": "~2.3.0"
+    },
+    "description": "<h1>Evolver</h1>",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ironman9967/Evolver.git"
+    },
+    "author": "Tyson Hester <ironman9967@gmail.com>",
+    "license": "BSD-2-Clause",
+    "bugs": {
+        "url": "https://github.com/ironman9967/Evolver/issues"
+    },
+    "homepage": "https://github.com/ironman9967/Evolver"
 }
