@@ -14,4 +14,8 @@ function BaseClass (id) {
 }
 util.inherits(BaseClass, events.EventEmitter);
 
+BaseClass.prototype._setupEvents = function () {};
+
+BaseClass.prototype._dispose = function () {};
+
 module.exports = BaseClass;

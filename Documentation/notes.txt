@@ -1,26 +1,38 @@
-Allele - a version of a chromosome
+Allele - a version of a gene
+Genotype - the allele of a gene that the cell, organism or individual has
+Nucleotide - an individual element (A, T, G or C) of DNA (or RNA)
 Chromosome - an organized structure of DNA, protein, and RNA found in cells
 Locus - location of a gene or DNA sequence or position on a chromosome
-Genotype - the allele of a gene that the cell, organism or individual has
+Base Pair - is the building block of the DNA double helix. it is a pair of nucleotides.
+SNP (Single Nucleotide Polymorphism) - a variation of a single base pair during copying
+Mutation - a random change to one or more chromosomes or traits. this produces variation in the population
+Variation - the result of mutation
+
 Phenotype - the outcome of two combined allele
 Heterozygous (hybrid) - two different alleles
 Homozygous - two identical alleles
+
 Dominance - indicates dominance of one gene over another (over simplified)
 Recessive - opposite of Dominance
 Incomplete Dominance - a non-mutually exclusive combination (red + white = pink)
 Codominant - both alleles are expressed in the phenotype
-Meiosis - special type of cell division necessary for sexual reproduction
+
 Independant Assortment - two traits on separate chromosomes (can transmit individually)
 Linked Traits - two traits on the same chromosome (must transmit together)
+
+Meiosis - special type of cell division necessary for sexual reproduction
 Homologous chromosome - a pair on chromosomes, one from the mother and one from the father
 Autosomal (autosome) - a chromosome that is not an allosome (gender chromosome)
 y-chromosome - male chromosome
 x-chromosome - female chromosome
-Genome - an entire set of chromosomes for an organizm. the human genome is made up of 46 (23 pairs) chromosomes and is composed of 3 billion base pairs.
-Base Pair - is the building block of the DNA double helix. it is a pair of A, T, G or C.
-SNP (Single Nucleotide Polymorphism) - a variation of a single base pair during copying
-Genetic Recombination - when genes are split, during the creation of sperm or egg, some chromosomes are shuffled around. the genes you pass on your offspring are NOT necessarily the same you inherited from your parents. most of the X and Y chromosomes remain intact
-Mutation - a random change to one or more chromosomes or traits. this produces variation in the population
-Variation - the result of mutation
-Natural Selection - if a factor increases that one type of organism cannot handle, it will not be able to reproduce as readily leaving resources available to organisms (or mutations of the original organism) that can tolorate the increased factor
+Genetic Recombination - when genes are split, during the creation of sperm or egg, some chromosomes are shuffled around.
+	the genes you pass on your offspring are NOT necessarily the same you inherited from your parents. most of the X and
+	Y chromosomes remain intact
+
+Genome - an entire set of chromosomes for an organizm. the human genome is made up of 46 (23 pairs) chromosomes and is
+	composed of 3 billion base pairs.
+
+Natural Selection - if a factor increases that one type of organism cannot handle, it will not be able to reproduce as
+	readily leaving resources available to organisms (or mutations of the original organism) that can tolerate the
+	increased factor
  

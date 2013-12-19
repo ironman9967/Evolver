@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="wid" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/node_modules/wid" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/node_modules/wid" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
