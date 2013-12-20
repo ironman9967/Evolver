@@ -27,7 +27,7 @@ chromosomeDefinition1.GeneDefinitions.push(geneDefinition1);
 var genomeDefinition1 = new GenomeDefinition(testName);
 genomeDefinition1.ChromosomeDefinitions.push(chromosomeDefinition1);
 
-var numOfOrganisms = 1000;
+var numOfOrganisms = 250;
 var organisms = [];
 
 for (var i = 0; i < numOfOrganisms; i++) {
@@ -58,7 +58,7 @@ var interval = setInterval(function () {
 	var max = _.max(organisms, function (o) {
 		return o.Genome.Chromosomes[testName].Genes[testName].Phenotype;
 	}).Genome.Chromosomes[testName].Genes[testName].Phenotype;
-	console.log(min + " : " + max);
+	console.log(testName + " population min: " + min + " --- " + testName + " population max: " + max);
 	if (min === 10 && max === 10) {
 		console.log("ALL ORGANISMS ARE PERFECT: ~" + Math.floor(((new Date()).getTime() - stamp) / 1000) + " seconds");
 		clearInterval(interval);
