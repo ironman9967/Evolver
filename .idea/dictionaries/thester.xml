@@ -2,6 +2,9 @@
   <dictionary name="thester">
     <words>
       <w>codon</w>
+      <w>crypto</w>
+      <w>lodash</w>
+      <w>randomizer</w>
     </words>
   </dictionary>
 </component>

@@ -1,43 +1,55 @@
 
-var BasePairFactory = require('../Classes/DNA/BasePairFactory');
-var Gene = require('../Classes/DNA/Gene');
-var Chromosome = require('../Classes/DNA/Chromosome');
-var Genome = require('../Classes/DNA/Genome');
+var _ = require('lodash');
 
-function createOrgainism() {
-    var gene1 = new Gene(2);
-    gene1.on('error', logError);
-    gene1.emit('addBasePair', BasePairFactory.GetBasePair());
-    gene1.emit('addBasePair', BasePairFactory.GetBasePair());
+var BasePairDefinition = require('../Classes/DNA/Definitions/BasePairDefinition');
+var GeneDefinition = require('../Classes/DNA/Definitions/GeneDefinition');
+var ChromosomeDefinition = require('../Classes/DNA/Definitions/ChromosomeDefinition');
+var GenomeDefinition = require('../Classes/DNA/Definitions/GenomeDefinition');
+var Genome = require('../Classes/DNA/Objects/Genome');
+var Organism = require('../Classes/Evolution/Organism');
 
-    var chromosome1 = new Chromosome(1);
-    chromosome1.on('error', logError);
-    chromosome1.emit('addGene', gene1);
+var basePairDefinition1 = new BasePairDefinition("Heat Tolerance");
+basePairDefinition1.Elements = _.range(5, 16);
 
-    var genome = new Genome(1);
-//    genome.on('complete', function () {
-//        genome.emit('outcome', function (outcome) {
-//            console.log(outcome);
-//        });
-//    });
-    genome.emit('addChromosome', chromosome1);
-    return genome;
+var geneDefinition1 = new GeneDefinition("Heat Tolerance");
+geneDefinition1.BasePairDefinitions.push(basePairDefinition1);
+
+var chromosomeDefinition1 = new ChromosomeDefinition("Heat Tolerance", function (c1, c2) {
+	var c1Diff = Math.abs(c1.Genes["Heat Tolerance"].Phenotype - 10);
+	var c2Diff = Math.abs(c2.Genes["Heat Tolerance"].Phenotype - 10);
+	return c1Diff <= c2Diff ? c1 : c2;
+});
+chromosomeDefinition1.GeneDefinitions.push(geneDefinition1);
+
+var genomeDefinition1 = new GenomeDefinition("Heat Tolerance");
+genomeDefinition1.ChromosomeDefinitions.push(chromosomeDefinition1);
+
+var numOfOrganisms = 1000;
+var organisms = [];
+
+for (var i = 0; i < numOfOrganisms; i++) {
+	organisms.push(new Organism(new Genome(genomeDefinition1, true)));
 }
 
-var population = [];
-var originalStamp = (new Date()).getTime();
-var stamp = originalStamp;
-for (var i = 0; i < 1000000; i++) {
-    population.push(createOrgainism());
-    if (i % 1000 === 0) {
-        var created = (new Date()).getTime();
-        console.log((created - originalStamp) + " --- " + (created - stamp) + " --- " + i);
-        stamp = created;
-    }
-}
+var lifeSpan = 5;
 
-console.log(population.length);
+setInterval(function () {
+	organisms.pop();
+}, lifeSpan);
 
-function logError(error) {
-    console.error(error);
-}
+setInterval(function () {
+	organisms.push(organisms[0].Breed(organisms[1]));
+	organisms = _.shuffle(organisms);
+}, lifeSpan);
+
+setInterval(function () {
+	var min = _.min(organisms, function (o) {
+		return o.Genome.Chromosomes["Heat Tolerance"].Genes["Heat Tolerance"].Phenotype;
+	}).Genome.Chromosomes["Heat Tolerance"].Genes["Heat Tolerance"].Phenotype;
+	var max = _.max(organisms, function (o) {
+		return o.Genome.Chromosomes["Heat Tolerance"].Genes["Heat Tolerance"].Phenotype;
+	}).Genome.Chromosomes["Heat Tolerance"].Genes["Heat Tolerance"].Phenotype;
+	console.log(min + " : " + max);
+}, lifeSpan * 200);
+
+
