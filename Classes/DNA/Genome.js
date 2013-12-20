@@ -1,6 +1,8 @@
 
 var util = require('util');
 
+var _ = require('lodash');
+
 var LimitedArray = require('./LimitedArray');
 
 function Genome(numberOfChromosomes) {
@@ -21,11 +23,29 @@ Genome.prototype._setupEvents = function () {
     this.on('addChromosome', function () {
         instance._addChromosome.apply(instance, arguments);
     });
+    this.on('outcome', function () {
+        instance._outcome.apply(instance, arguments);
+    });
 };
 
 Genome.prototype._addChromosome = function (chromosome) {
     this.emit('addElement', chromosome);
 };
+Genome.prototype._outcome = function (callback) {
+    var chromosomeOutcomes = [];
+    var instance = this;
+    _.each(this._elements, function (chromosome) {
+        chromosome.emit('outcome', function (outcome) {
+            chromosomeOutcomes.push(outcome);
+            checkOutcomes(chromosomeOutcomes, instance._elements.length, callback);
+        });
+    });
+};
+function checkOutcomes(outcomes, total, callback) {
+    if (outcomes.length === total) {
+        callback(_.flatten(outcomes));
+    }
+}
 
 Genome.prototype._dispose = function () {
 	this._limitedArray._dispose.call(this);

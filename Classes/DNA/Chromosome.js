@@ -23,6 +23,9 @@ Chromosome.prototype._setupEvents = function () {
 	this.on('addGene', function () {
 		instance._addGene.apply(instance, arguments);
 	});
+    this.on('outcome', function () {
+        instance._outcome.apply(instance, arguments);
+    })
 };
 
 Chromosome.prototype._addGene = function (gene) {
@@ -34,6 +37,22 @@ Chromosome.prototype._addGene = function (gene) {
         }
     });
 };
+
+Chromosome.prototype._outcome = function (callback) {
+    var geneOutcomes = [];
+    var instance = this;
+    _.each(this._elements, function (gene) {
+        gene.emit('outcome', function (outcome) {
+            geneOutcomes.push(outcome);
+            checkOutcomes(geneOutcomes, instance._elements.length, callback);
+        });
+    })
+};
+function checkOutcomes(outcomes, total, callback) {
+    if (outcomes.length === total) {
+        callback(_.flatten(outcomes));
+    }
+}
 
 Chromosome.prototype._dispose = function () {
 	this._baseClass._dispose.call(this);

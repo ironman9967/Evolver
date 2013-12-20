@@ -9,8 +9,16 @@ function Nucleotides (type) {
     }
     BaseClass.call(this);
 
-    this._type = type;
+    this.Type = type;
 }
 util.inherits(Nucleotides, BaseClass);
+
+Nucleotides.prototype._setupEvents = function () {
+    this._baseClass._setupEvents.call(this);
+};
+
+Nucleotides.prototype._dispose = function () {
+    this._baseClass._dispose.call(this);
+};
 
 module.exports = Nucleotides;
