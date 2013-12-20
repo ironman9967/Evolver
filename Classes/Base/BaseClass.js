@@ -10,7 +10,7 @@ function BaseClass (id) {
     }
     events.EventEmitter.call(this);
 
-	this.id = _.isUndefined(id) ? (require('wid')).NewWID(6) : id;
+	this.id = _.isUndefined(id) ? (require('wid')).NewWID(8) : id;
 }
 util.inherits(BaseClass, events.EventEmitter);
 

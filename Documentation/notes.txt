@@ -35,4 +35,3 @@ Genome - an entire set of chromosomes for an organizm. the human genome is made 
 Natural Selection - if a factor increases that one type of organism cannot handle, it will not be able to reproduce as
 	readily leaving resources available to organisms (or mutations of the original organism) that can tolerate the
 	increased factor
- 

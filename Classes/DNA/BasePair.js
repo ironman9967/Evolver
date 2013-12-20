@@ -3,8 +3,6 @@ var util = require('util');
 
 var BaseClass = require('../Base/BaseClass');
 
-var Nucleotide = require('./Nucleotide');
-
 function BasePair(nucleotide1, nucleotide2) {
 	if ((this instanceof BasePair) === false) {
 		return new BasePair(nucleotide1, nucleotide2);
